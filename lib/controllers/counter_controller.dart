@@ -22,12 +22,13 @@ class CounterController extends Controller {
 
   @override
   void onInit() {
+    print("CounterController init");
     super.onInit();
   }
 
-  // @override
-  // void onDispose() {
-  //   print("CounterController disposed");
-  //   super.onDispose();
-  // }
+  @override
+  void onDispose() {
+    print("CounterController disposed");
+    super.onClose();
+  }
 }

@@ -1,8 +1,14 @@
+import 'controller.dart';
+
 class DependencyManager {
   static final Map<Type, dynamic> _dependencies = {};
 
-  static void put<T>(T instance) {
+  static T put<T>(T instance) {
     _dependencies[T] = instance;
+    if (instance is Controller) {
+      instance.onInit();
+    }
+    return instance;
   }
 
   static T find<T>() {
@@ -13,6 +19,11 @@ class DependencyManager {
   }
 
   static void clearAll() {
+    _dependencies.forEach((key, value) {
+      if (value is Controller) {
+        value.onClose();
+      }
+    });
     _dependencies.clear();
   }
 }
