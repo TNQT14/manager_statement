@@ -3,17 +3,31 @@ import 'package:state_manager/state_manager.dart';
 class CounterController extends Controller {
   final Reactive<int> counter = Reactive<int>(0);
 
-  void increment() {
+  void increment() => counter.value++;
+
+  void decrement() => counter.value--;
+
+  void reset()=> counter.reset(0);
+
+
+  Future<void> incrementAsync() async {
+    await Future.delayed(Duration(seconds: 2));
     counter.value++;
   }
 
-  void decrement() {
+  Future<void> decrementAsync() async {
+    await Future.delayed(Duration(seconds: 2));
     counter.value--;
   }
 
   @override
   void onInit() {
     super.onInit();
-    print("CounterController initialized");
   }
+
+  // @override
+  // void onDispose() {
+  //   print("CounterController disposed");
+  //   super.onDispose();
+  // }
 }

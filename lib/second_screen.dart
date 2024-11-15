@@ -23,7 +23,7 @@ class SecondScreen extends StatelessWidget {
                 );
               },
             ),
-            
+
             ElevatedButton(
               onPressed: controller.increment,
               child: const Text('Increment'),
@@ -32,6 +32,25 @@ class SecondScreen extends StatelessWidget {
             ElevatedButton(
               onPressed: controller.decrement,
               child: const Text('Decrement'),
+            ),
+
+            ElevatedButton(
+              onPressed: controller.reset,
+              child: const Text('Reset'),
+            ),
+
+            ElevatedButton(
+              onPressed: () async {
+                await controller.incrementAsync();
+              },
+              child: const Text('Increment Async'),
+            ),
+
+            ElevatedButton(
+              onPressed: () async {
+                await controller.decrementAsync();
+              },
+              child: const Text('Decrement Async'),
             ),
 
             ElevatedButton(

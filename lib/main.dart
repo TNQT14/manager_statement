@@ -47,6 +47,26 @@ class CounterScreen extends StatelessWidget {
               child: const Text('Decrement'),
             ),
             ElevatedButton(
+              onPressed: controller.reset,
+              child: const Text('Reset'),
+            ),
+
+            ElevatedButton(
+              onPressed: () async {
+                await controller.incrementAsync();
+              },
+              child: const Text('Increment Async'),
+            ),
+
+            ElevatedButton(
+              onPressed: () async {
+                await controller.decrementAsync();
+              },
+              child: const Text('Decrement Async'),
+            ),
+
+
+            ElevatedButton(
               onPressed: () => Navigation.to(context, SecondScreen()),
               child: const Text('Go to Second Screen'),
             ),
