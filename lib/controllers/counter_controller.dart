@@ -7,6 +7,10 @@ class CounterController extends Controller {
     counter.value++;
   }
 
+  void decrement() {
+    counter.value--;
+  }
+
   @override
   void onInit() {
     super.onInit();

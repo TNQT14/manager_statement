@@ -9,7 +9,7 @@ class SecondScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Second Screen')),
+      appBar: AppBar(title: const Text('Second Screen')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -19,13 +19,24 @@ class SecondScreen extends StatelessWidget {
               builder: (context, value, child) {
                 return Text(
                   'Counter: $value',
-                  style: TextStyle(fontSize: 24),
+                  style: const TextStyle(fontSize: 24),
                 );
               },
             ),
+            
+            ElevatedButton(
+              onPressed: controller.increment,
+              child: const Text('Increment'),
+            ),
+
+            ElevatedButton(
+              onPressed: controller.decrement,
+              child: const Text('Decrement'),
+            ),
+
             ElevatedButton(
               onPressed: () => Navigation.back(context),
-              child: Text('Back'),
+              child: const Text('Back'),
             ),
           ],
         ),

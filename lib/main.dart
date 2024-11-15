@@ -24,7 +24,7 @@ class CounterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('State Manager')),
+      appBar: AppBar(title: const Text('State Manager')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -34,17 +34,21 @@ class CounterScreen extends StatelessWidget {
               builder: (context, value, child) {
                 return Text(
                   'Counter: $value',
-                  style: TextStyle(fontSize: 24),
+                  style: const TextStyle(fontSize: 24),
                 );
               },
             ),
             ElevatedButton(
               onPressed: controller.increment,
-              child: Text('Increment'),
+              child: const Text('Increment'),
+            ),
+            ElevatedButton(
+              onPressed: controller.decrement,
+              child: const Text('Decrement'),
             ),
             ElevatedButton(
               onPressed: () => Navigation.to(context, SecondScreen()),
-              child: Text('Go to Second Screen'),
+              child: const Text('Go to Second Screen'),
             ),
           ],
         ),
